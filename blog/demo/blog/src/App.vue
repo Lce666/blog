@@ -7,7 +7,9 @@
       <el-container>
         <el-aside width="200px">Aside</el-aside>
         <el-main>
-          <articleList/>
+          <!-- <articleList/>
+          <Index/> -->
+          <Test/>
         </el-main>
       </el-container>
     </el-container>
@@ -17,10 +19,13 @@
 <script>
 import Home from './views/Home.vue';
 import articleList from './components/articleList.vue';
+import Index from './views/Index.vue';
+import Test  from './views/Test.vue';
+
 export default {
   name: 'App',
   components: {
-    Home,articleList
+    Home,articleList,Index,Test
   },
   methods:{
     
