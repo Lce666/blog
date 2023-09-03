@@ -8,11 +8,11 @@ let sqlList={
     // 置顶文章
     topArticle:"update article set is_top=? where id= ?",
     // 删除文章
-    delArticle:"delete from article where id=? and user_id=?",
+    delArticle:"delete from article where id=?",
     // 获取某篇所有评论
     getComments:"select id,username,content,create_time from comment where blog_id=?",
     // 添加评论
-    addComment:"insert into comment set ?",
+    addComment:"INSERT INTO comment (username, content, create_time, blog_id) VALUES (?, ?, NOW(), ?)",
     },
 
 

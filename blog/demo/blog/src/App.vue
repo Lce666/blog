@@ -1,31 +1,27 @@
-<template>
-  <div>
+<template>    <div class="show">
     <el-container>
       <el-header>
-        <Home></Home>
+        <Menu index="/"></Menu>
       </el-header>
-      <el-container>
-        <el-aside width="200px">Aside</el-aside>
-        <el-main>
-          <!-- <articleList/>
-          <Index/> -->
-          <Test/>
-        </el-main>
-      </el-container>
+      <el-main>
+        <router-view></router-view>
+      </el-main>
     </el-container>
+    
   </div>
+
 </template>
 
 <script>
-import Home from './views/Home.vue';
+import Menu from './views/Menu.vue';
 import articleList from './components/articleList.vue';
 import Index from './views/Index.vue';
-import Test  from './views/Test.vue';
+import Archive from './views/Archive.vue';
 
 export default {
   name: 'App',
   components: {
-    Home,articleList,Index,Test
+    Menu,articleList,Index,Archive
   },
   methods:{
     
@@ -34,13 +30,10 @@ export default {
 </script>
 
 <style lang="less">
-/* .el-header,
-.el-footer {
-  background-color: #b3c0d1;
-  color: #333;
-  text-align: center;
-  line-height: 60px;
-} */
+*{
+  margin: 0;
+  padding: 0;
+}
 
 .el-aside {
   background-color: #d3dce6;
@@ -50,13 +43,18 @@ export default {
 }
 
 .el-main {
+  width: 1100px;
+  height: 950px;
   background-color: #e9eef3;
   color: #333;
   text-align: center;
-  line-height: 800px;
+  line-height: 8px;
+  padding: 0;
 }
 
 body > .el-container {
-  margin-bottom: 40px;
+  margin-bottom: 400px;
 }
+
+
 </style>

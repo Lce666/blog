@@ -23,58 +23,5 @@ function executeQuery(query,res,errorMessage,...queryParamsters){
   })
 }
 
-// async function executeQuery(query, queryParameters) {
-//   const connection = await pool.getConnection();
-//   try {
-//     const [rows] = await connection.query(query, queryParameters);
-//     return rows;
-//   } catch (error) {
-//     throw error;
-//   } finally {
-//     connection.release();
-//   }
-// }
-// async function executeQuery(query, queryParameters) {
-//   const connection = await new Promise((resolve, reject) => {
-//     pool.getConnection((err, conn) => {
-//       if (err) {
-//         reject(err);
-//       } else {
-//         resolve(conn);
-//       }
-//     });
-//   });
-
-//   try {
-//     const [rows] = await connection.query(query, queryParameters);
-//     return rows;
-//   } catch (error) {
-//     throw error;
-//   } finally {
-//     connection.release();
-//   }
-// }
-
-    
-// // 处理查询请求
-// async function handleQuery(req,res){
-//   try{
-//     const queryName=req.query.queryName
-//     const queryParamsters=req.query.queryParamsters||[]
-
-//     // 根据queryName获取查询语句
-//     const query=sqlList[queryName]
-//     if(!query){
-//       res.status(400).json({error:"无效的查询名"})
-//       return queryName
-//     }
-
-//     // 执行查询
-//     const result=await executeQuery(query,queryParamsters)
-//     res.json(result)
-//   }catch(error){
-//     res.status(500).json({error:'服务器连接错误'})
-//   }
-// }
 
 module.exports={executeQuery}

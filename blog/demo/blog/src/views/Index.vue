@@ -1,22 +1,20 @@
 <template>
   <div>
-    <h1>博客列表</h1>
-    <ul>
-      <li v-for="blog in blogs" :key="blog.id">{{ blog.title }}</li>
-    </ul>
+    <ArticleList :allArticle="allArticles" @refreshData="fetchArticles"></ArticleList>
+    <el-backtop></el-backtop>
   </div>
 </template>
 
 <script>
-// import {getBlogs} from '../config/API';
+import ArticleList from '../components/articleList.vue';
 export default{
   data(){
     return{
-      blogs:[]
+      allArticles:[]
     }
   },
   components:{
-
+    ArticleList
   },
   mounted(){
     this.fetchArticles()
@@ -26,11 +24,11 @@ export default{
       try {
         const response = await fetch(`http://localhost:3000/api/getArticles`);
         const data = await response.json();
-        this.blogs = data;
+        this.allArticles = data;
       } catch (error) {
       console.error('获取博客列表失败', error);
       }
-    }
+    },
   }
 }
 </script>
